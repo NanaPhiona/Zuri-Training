@@ -1,43 +1,48 @@
 <?php
 
-class Car
+//Creating Student Class
+class Student
 {
-    public $make;
-    public $model;
-    public $year;
+    public $name;
+    public $sex;
+    public $studentNo;
 
-    public function __construct($make, $model, $year)
+    public function __construct($name, $sex, $studentNo)
     {
-        $this->make = $make;
-        $this->model = $model;
-        $this->year = $year;
+        $this->name = $name;
+        $this->sex = $sex;
+        $this->studentNo = $studentNo;
     }
 
-    public function get_model_and_year()
+    public function get_student_info()
     {
-        return 'My car is ' . $this->model . ' and it was made in ' . $this->year;
+        return "My name is " . $this->name . ", I'm " . $this->sex . " by sex";
     }
 
-    public function get_make()
+    public function get_school_details()
     {
-        return 'Car make is ' . $this->make;
+        return "I'm a student at Zuri training and my student number is" . $this->studentNo;
     }
 }
 
-$car = new Car("Mercedes-Benz", "Mercedes-Benz C-Class", 2023);
-echo $car->get_model_and_year();
+//Creating student object
+$student = new Student("Nankya Phiona", "Female", "CLA001085RZQ");
+echo $student->get_student_info();
 echo "\n";
-echo $car->get_make();
+echo $student->get_school_details();
 
-class Mercedes extends Car
+//Lecture class that extends Student
+class Lecture extends Student
 {
-    public function get_mercedez()
+    //Method in this class
+    public function attend_lecture()
     {
-        return "My car is " . $this->model . " and the " . $this->get_make();
+        return "Hello there, my is " . $this->name . ". " . $this->get_school_details() . ". I attended lecture PHP OOP";
     }
 }
 
-$mercedes = new Mercedes("Mercedes-Benz", "Mercedes-Benz C-Class", 2023);
+//Creating Lecture object
+$lecture = new Lecture("Nankya Phiona", "Female", "CLA001085RZQ");
 echo "\n";
 echo "\n";
-echo $mercedes->get_mercedez();
+echo $lecture->attend_lecture();
